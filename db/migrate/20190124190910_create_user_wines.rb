@@ -3,8 +3,7 @@ class CreateUserWines < ActiveRecord::Migration[5.2]
     create_table :user_wines do |t|
       t.boolean :uncorked
       t.integer :user_id
-      t.string :wine_id
-      t.integer :
+      t.integer :wine_id
 
       t.timestamps
     end
