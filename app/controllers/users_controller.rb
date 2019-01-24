@@ -11,8 +11,12 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       redirect_to root_path
-    end 
+    end
   end
+
+  def show
+    @user = User.find(params[:id])
+  end 
 
   private
 
