@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :types do
-    resources :wines, only: [:show, :new]
-  end
+  resources :types
   resources :wines
   resources :users
 

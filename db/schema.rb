@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_193518) do
     t.string "name"
     t.integer "year"
     t.integer "price"
+    t.integer "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

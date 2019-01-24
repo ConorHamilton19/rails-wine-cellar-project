@@ -1,0 +1,5 @@
+<h1> Types Index </h1>
+
+<% @types.all do |type| %>
+<%= link_to "#{type}", type_path(type) %>
+<% end %>
