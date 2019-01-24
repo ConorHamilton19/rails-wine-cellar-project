@@ -1,7 +1,7 @@
 class WinesController < ApplicationController
 
   def new
-      @wine = Wine.new
+      @wine = Wine.new(type_id: params[:type_id])
   end
 
   def create
@@ -35,7 +35,7 @@ class WinesController < ApplicationController
   private
 
   def wine_params
-    params.require(:wine).permit(:name, :year, :price)
+    params.require(:wine).permit(:name, :year, :price, :type_id)
   end
 
 end

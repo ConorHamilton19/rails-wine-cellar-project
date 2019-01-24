@@ -1,5 +1,7 @@
 <%= form_for(@wine) do |f| %>
 
+<%= f.hidden_field :type_id %>
+
 <%= f.label :name %>
 <%= f.text_field :name %> <br>
 <%= f.label :year %>
