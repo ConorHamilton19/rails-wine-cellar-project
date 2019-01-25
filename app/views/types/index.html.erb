@@ -1,5 +1,7 @@
 <h1> Types Index </h1>
 
-<% @types.all do |type| %>
-<%= link_to "#{type}", type_path(type) %>
+<ul>
+<% @types.each do |type| %>
+  <li> <%= link_to "#{type.name}", type_path(type) %> </li><br>
 <% end %>
+</ul>
