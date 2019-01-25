@@ -9,3 +9,6 @@
   <li><%= link_to "#{wine.name}", type_wine_path(wine) %> </li>
   <%end%>
 </ul>
+
+
+<%= link_to "Add new wine to #{@type.name}", new_type_wine_path(@type) %>
