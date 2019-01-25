@@ -10,13 +10,13 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      redirect_to root_path
+      render 'users/new'
     end
   end
 
   def show
     @user = User.find(params[:id])
-  end 
+  end
 
   private
 

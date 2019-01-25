@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <div class="topnav">
+      <a <%= link_to "Logout", signout_path %></a>
+      <a <%= link_to "+ Add Wine", new_wine_path %></a>
+      <a <%= link_to "Profile", root_path %></a>
+    </div>
     <%= yield %>
   </body>
 </html>
