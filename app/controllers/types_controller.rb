@@ -1,8 +1,9 @@
 class TypesController < ApplicationController
+  before_action :authentication_required
 
   def new
     @type = Type.new
-  end
+  end 
 
   def create
     @type = Type.create(type_params)
@@ -19,7 +20,7 @@ class TypesController < ApplicationController
 
   def show
     @type = Type.find(params[:id])
-  end 
+  end
 
   private
 

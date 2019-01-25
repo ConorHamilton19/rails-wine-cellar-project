@@ -1,7 +1,8 @@
 class WinesController < ApplicationController
+    before_action :authentication_required
 
   def new
-      @wine = Wine.new(type_id: params[:type_id])
+    @wine = Wine.new(type_id: params[:type_id])
   end
 
   def create

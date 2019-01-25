@@ -1,1 +1,11 @@
-<h1><%= @type.name %> from <%=@type.region%></h1>
+<h1><%= @type.name %> </h1>
+
+<% if @type.region %>
+<h3> <%= @type.region %></h3>
+<%end%>
+
+<ul>
+<% @type.wines.each do |wine| %>
+  <li><%= link_to "#{wine.name}", type_wine_path(wine) %> </li>
+  <%end%>
+</ul>
