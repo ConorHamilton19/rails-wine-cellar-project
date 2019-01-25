@@ -1,6 +1,5 @@
 <%= form_for(@wine) do |f| %>
 
-<%= f.hidden_field :type_id %>
 
 <%= f.label :name %>
 <%= f.text_field :name %> <br>
@@ -8,5 +7,18 @@
 <%= f.text_field :year %> <br>
 <%= f.label :price %>
 <%= f.text_field :price %><br>
+
+<% if @wine.type_id %>
+<%= f.hidden_field :type_id %>
+<% else %>
+<%= f.label :type_name %>
+<%= f.text_field :type_name, list: "type_autocomplete" %>
+ <datalist id="type_autocomplete">
+   <% Type.all.each do |type| %>
+     <option value="<%= type.name %>">
+   <% end %>
+ </datalist>
+<% end %><br> <br>
+
 <%= f.submit %>
 <% end %>
