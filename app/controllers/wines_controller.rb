@@ -18,6 +18,7 @@ class WinesController < ApplicationController
 
   def show
     @wine = Wine.find(params[:id])
+    @drank = UserWine.find(@wine.id)
   end
 
   def index
