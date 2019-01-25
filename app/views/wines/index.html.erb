@@ -1,7 +1,7 @@
 <h1> Wines Index </h1>
 
 <ul>
-<% @wines.each do |wine| %>
+<% current_user.wines.each do |wine| %>
   <li> <%= link_to "#{wine.name}", wine_path(wine) %> </li><br>
 <% end %>
 </ul>

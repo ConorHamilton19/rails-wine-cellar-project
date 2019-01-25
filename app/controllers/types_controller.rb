@@ -3,7 +3,7 @@ class TypesController < ApplicationController
 
   def new
     @type = Type.new
-  end 
+  end
 
   def create
     @type = Type.create(type_params)
@@ -15,7 +15,7 @@ class TypesController < ApplicationController
   end
 
   def index
-    @types = Type.all
+    @types = current_user.wines.map{|wine| wine.type}
   end
 
   def show

@@ -1,7 +1,7 @@
 <h1> Types Index </h1>
 
 <ul>
-<% @types.each do |type| %>
+<% @types.uniq.each do |type| %>
   <li> <%= link_to "#{type.name}", type_path(type) %> </li><br>
 <% end %>
 </ul>

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authentication_required
+  skip_before_action :authentication_required, only: [:new,:create]
 
   def new
     @user = User.new
@@ -15,8 +17,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    if !authentication_required
       @user = User.find(params[:id])
+    if session[:user_id] != @user.id
+      redirect_to root_path
     end
   end
 
