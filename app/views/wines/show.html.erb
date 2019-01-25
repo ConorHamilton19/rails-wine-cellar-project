@@ -4,7 +4,7 @@
 <h3><%= @wine.year %> </h3>
 <h3>$<%= @wine.price %> </h3>
 
-<h3>Drank? <%= @wine.user_wines.map{|uw| uw.uncorked}. %> </h3>
+<h3>Drank? <%= @wine.user_wines.map{|uw| uw.uncorked} %> </h3>
 
 
 <%= link_to "Edit Wine", edit_wine_path(@wine) %>
