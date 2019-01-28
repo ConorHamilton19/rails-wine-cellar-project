@@ -6,7 +6,9 @@
 
 <ul>
 <% @type.wines.each do |wine| %>
+  <% if current_user.wines.include?(wine) %>
   <li><%= link_to "#{wine.name}", type_wine_path(@type, wine.id) %> </li>
+    <%end%>
   <%end%>
 </ul>
 
