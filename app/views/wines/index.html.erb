@@ -1,19 +1,20 @@
 <h1> Wine Collection </h1>
 
 <ul>
-<% @wines_corked.each do |wine| %>
-<% if current_user.wines.include?(wine) %>
+<% current_user.wines.bottle_corked.each do |wine| %>
+
 <li> <%= link_to "#{wine.name}", wine_path(wine) %> </li><br>
-  <%end%>
+
 <%end%>
 </ul>
 
-<h1> Wines Drank </h1>
+<h1> Wines Uncorked </h1>
 
 <ul>
-<% @wines_drank.each do |wine| %>
-  <% if current_user.wines.include?(wine) %>
+  <% current_user.wines.bottle_drank.each do |wine| %>
+
   <li> <%= link_to "#{wine.name}", wine_path(wine) %> </li><br>
+
   <%end%>
-<% end %>
+
 </ul>

@@ -11,10 +11,13 @@
 <br>
 <br>
 
+<% if @user_wine.uncorked == false %>
 <%= form_for @user_wine do |f| %>
 
 <%= label_tag :uncorked %>
 <%= check_box_tag :uncorked%>
 
 <%= submit_tag %>
-<% end %>
+<%end %>
+
+<%end%>
