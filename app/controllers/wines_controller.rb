@@ -18,11 +18,12 @@ class WinesController < ApplicationController
 
   def show
     @wine = Wine.find(params[:id])
-    
+    @user_wine = UserWine.find_by(wine_id: @wine.id, user_id: current_user.id)
   end
 
   def index
-    @wines = Wine.all
+    @wines_drank = Wine.bottle_drank
+    @wines_corked = Wine.bottle_corked
   end
 
   def edit
@@ -44,6 +45,7 @@ class WinesController < ApplicationController
   private
 
   def wine_params
+
     params.require(:wine).permit(:name, :year, :price, :type_id, :type_name)
   end
 

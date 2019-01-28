@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   resources :types do
     resources :wines, only: [:show, :new]
-  end 
+  end
   resources :wines
   resources :users
+  resources :user_wines
 
   root 'welcome#welcome'
 
