@@ -1,5 +1,16 @@
 <%= form_for(@wine) do |f| %>
 
+<% if @wine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wine.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @wine.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
 
 <%= f.label :name %>
 <%= f.text_field :name %> <br>
@@ -7,6 +18,8 @@
 <%= f.text_field :year %> <br>
 <%= f.label :price %>
 <%= f.text_field :price %><br>
+
+
 <%= f.label :type_name %>
 <%= f.text_field :type_name, list: "type_autocomplete" %>
  <datalist id="type_autocomplete">

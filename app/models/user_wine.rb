@@ -4,6 +4,8 @@ class UserWine < ApplicationRecord
 
   scope :drank, -> {where(uncorked: 1)}
   scope :corked, -> {where(uncorked: 0)}
+  scope :corked, -> {where(uncorked: nil)}
+
 
 
 end

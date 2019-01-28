@@ -12,7 +12,7 @@ class WinesController < ApplicationController
       current_user.wines << @wine
       redirect_to wine_path(@wine)
     else
-      redirect_to root_path
+      render 'wines/new'
     end
   end
 

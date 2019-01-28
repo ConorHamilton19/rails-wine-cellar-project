@@ -1,6 +1,7 @@
 class TypesController < ApplicationController
   before_action :authentication_required
 
+
   def new
     @type = Type.new
   end
