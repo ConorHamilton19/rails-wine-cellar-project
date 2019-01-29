@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_193518) do
   end
 
   create_table "user_wines", force: :cascade do |t|
-    t.boolean "uncorked", default: false
+    t.integer "uncorked", default: 0
     t.integer "user_id"
     t.integer "wine_id"
     t.datetime "created_at", null: false

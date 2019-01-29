@@ -11,7 +11,7 @@
 <br>
 <br>
 
-<% if @user_wine.uncorked != true %>
+<% if @user_wine.uncorked == 0 %>
 <%= form_for @user_wine do |f| %>
 
 <%= label_tag :uncorked %>
