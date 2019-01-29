@@ -1,23 +1,6 @@
 <%= form_for(@wine) do |f| %>
 
-<% if @wine.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@wine.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @wine.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-<% end %>
-
-<%= f.label :name %>
-<%= f.text_field :name %> <br>
-<%= f.label :year %>
-<%= f.text_field :year %> <br>
-<%= f.label :price %>
-<%= f.text_field :price %><br>
+<%= render :partial => "form", :locals=>{:f=>f} %>
 
 
 <%= f.label :type_name %>

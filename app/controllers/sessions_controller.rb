@@ -6,8 +6,9 @@ class SessionsController < ApplicationController
 
 
   def create
-    if auth_hash = request.env["omniauth.auth"]["info"]["name"]
-      name = "#{auth_hash.partition(" ").first}"
+    if auth_hash = request.env["omniauth.auth"]
+      name_search= auth_hash["info"]["name"]
+      name = "#{name_search.partition(" ").first}"
       if  @user = User.find_by(name: name)
           session[:user_id] = @user.id
           redirect_to root_path
