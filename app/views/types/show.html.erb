@@ -6,11 +6,12 @@
 
 <ul>
 <% @type.wines.each do |wine| %>
-  <% if current_user.wines.bottle_corked.include?(wine) %>
+  <% if new_array = current_user.wines.bottle_corked.include?(wine) %>
   <li><%= link_to "#{wine.name}", type_wine_path(@type, wine.id) %> </li>
-    <%end%>
   <%end%>
+<%end%>
 </ul>
+
 
 
 <%= link_to "Add new wine to #{@type.name}", new_type_wine_path(@type) %> <br><br>

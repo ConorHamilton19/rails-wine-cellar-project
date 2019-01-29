@@ -14,21 +14,21 @@ class SessionsController < ApplicationController
           redirect_to root_path
       else
         @user = User.new(name: name, password: SecureRandom.hex)
-        if user.save
+        if @user.save
           session[:user_id] = @user.id
-          redirect to root_path
+          redirect_to root_path
         else
           raise @user.errors.full_messages.inspect
         end
       end
 
     else
-      @user = User.find_by(name: params[:user][:name])
-      if @user &&  @user.authenticate(params[:user][:password])
+      @user = User.find_by(name: params[:name])
+      if @user &&  @user.authenticate(params[:password])
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        redirect_to root_path
+        render '/sessions/new'
       end
     end
   end
