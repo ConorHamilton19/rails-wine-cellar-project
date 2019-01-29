@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Digital Wine Cellar is a web application that allows you to keep a digital collection of you current physical wine collection.
 
-Things you may want to cover:
+You have the option to check off a wine after it is drank to move it to a list if you want to keep it for future reference.  
 
-* Ruby version
+Visit the web application and signup/login using an individual name and password. This will be how you access your wine collection.
 
-* System dependencies
+Navigate the website using the links and forms to experience what the web application has to offer.
 
-* Configuration
+Make sure to logout when finished.
 
-* Database creation
+License- https://opensource.org/licenses/MIT
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Contributing- ??
