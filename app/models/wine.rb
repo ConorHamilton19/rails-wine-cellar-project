@@ -4,6 +4,7 @@ class Wine < ApplicationRecord
   has_many :user_wines
 
   validates :name, presence: true
+  validates :type_name, presence: true 
 
   scope :bottle_drank, ->  {joins(:user_wines).merge(UserWine.drank)}
   scope :bottle_corked, -> {joins(:user_wines).merge(UserWine.corked)}
