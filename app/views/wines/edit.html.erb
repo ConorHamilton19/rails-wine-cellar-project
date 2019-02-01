@@ -4,8 +4,6 @@
 
 
 <%= f.label :type_name %>
-<%= f.text_field :type_name, list: "type_autocomplete" %>
-<%= f.label :type_name %>
 <%= f.collection_select :type_id, Type.all, :id, :name %>
 <br> <br>
 
