@@ -1,0 +1,8 @@
+<h1> Top 5 Most Popular Wines </h1>
+
+
+<ol>
+<% @wines.popular.each do |wine| %>
+<li><%= wine.name%></li>
+<% end %>
+</ol>

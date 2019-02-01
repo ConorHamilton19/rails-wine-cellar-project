@@ -7,7 +7,7 @@ class WinesController < ApplicationController
   end
 
   def create
-    @wine = Wine.create(wine_params)
+    @wine = Wine.find_or_create_by(wine_params)
 
     if @wine.save
       current_user.wines << @wine
@@ -23,8 +23,8 @@ class WinesController < ApplicationController
   end
 
   def index
-    @wines_drank = Wine.bottle_drank
-    @wines_corked = Wine.bottle_corked
+    @wines = current_user.wines
+
   end
 
   def edit
@@ -41,6 +41,10 @@ class WinesController < ApplicationController
     @wine = Wine.find(params[:id])
     @wine.destroy
     redirect_to wines_path
+  end
+
+  def popular
+    @wines = Wine.all
   end
 
   private

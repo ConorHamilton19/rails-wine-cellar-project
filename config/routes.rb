@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+
+  get '/wines/popular', to: 'wines#popular', as: 'popular'
   resources :types do
     resources :wines, only: [:show, :new]
   end

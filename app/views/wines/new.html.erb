@@ -6,12 +6,8 @@
 <%= f.hidden_field :type_id %>
 <% else %>
 <%= f.label :type_name %>
-<%= f.text_field :type_name, list: "type_autocomplete" %>
- <datalist id="type_autocomplete">
-   <% Type.all.each do |type| %>
-     <option value="<%= type.name %>">
-   <% end %>
- </datalist>
+<%= f.collection_select :type_id, Type.all, :id, :name %>
+
 <% end %><br> <br>
 
 <%= f.submit %>

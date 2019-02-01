@@ -9,5 +9,4 @@ class UserWine < ApplicationRecord
 
 
 
-
 end

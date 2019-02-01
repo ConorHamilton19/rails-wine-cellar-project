@@ -5,11 +5,8 @@
 
 <%= f.label :type_name %>
 <%= f.text_field :type_name, list: "type_autocomplete" %>
- <datalist id="type_autocomplete">
-   <% Type.all.each do |type| %>
-     <option value="<%= type.name %>">
-   <% end %>
- </datalist>
+<%= f.label :type_name %>
+<%= f.collection_select :type_id, Type.all, :id, :name %>
 <br> <br>
 
 <%= f.submit %>

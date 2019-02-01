@@ -5,5 +5,7 @@
 <h3>You have <%= @user.wines.bottle_corked.count %> Bottles in your Collection. </h3>
 <h3>You have <%= @user.wines.bottle_drank.count %> Bottles in your Uncorked Collection. </h3>
 
-<%= link_to "See your Wines", wines_path %>  &nbsp;&nbsp;&nbsp;&nbsp; <%= link_to "See your Wine Types", types_path%>
+<%= link_to "See your Wines", wines_path %>  &nbsp;&nbsp;&nbsp;&nbsp; <%= link_to "See your Wine Types", types_path%><br>
+<br>
+<%= link_to "5 Most Popular Wines", popular_path %>
 </div>
