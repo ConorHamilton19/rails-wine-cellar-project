@@ -15,23 +15,17 @@ ActiveRecord::Schema.define(version: 2019_01_24_193518) do
   create_table "types", force: :cascade do |t|
     t.string "name"
     t.string "region"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "user_wines", force: :cascade do |t|
     t.integer "uncorked", default: 0
     t.integer "user_id"
     t.integer "wine_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "wines", force: :cascade do |t|
@@ -39,8 +33,6 @@ ActiveRecord::Schema.define(version: 2019_01_24_193518) do
     t.integer "year"
     t.integer "price"
     t.integer "type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

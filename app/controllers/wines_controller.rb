@@ -24,7 +24,10 @@ class WinesController < ApplicationController
 
   def index
     @wines = current_user.wines
-
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @wines.to_json }
+    end
   end
 
   def edit
