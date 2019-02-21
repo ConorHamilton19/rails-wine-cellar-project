@@ -3,11 +3,13 @@ $(document).ready(function() {
 })
 
 function attachListeners() {
-  getWines()
+  nextType()
 }
 
-function getWines(){
-  $('#wines').on('click', function() {
+function nextType(){
+  $('#type').on('click', function() {
+
+    
     $.get("/wines.json").success(function(response) {
       $("div.corked ul").html("");
       response.forEach(function(wine){
