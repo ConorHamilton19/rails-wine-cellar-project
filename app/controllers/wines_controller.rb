@@ -26,7 +26,7 @@ class WinesController < ApplicationController
     @wines = current_user.wines
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @wines.to_json }
+      format.json { render json: @wines }
     end
   end
 
