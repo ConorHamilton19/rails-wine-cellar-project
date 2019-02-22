@@ -11,7 +11,10 @@ class WinesController < ApplicationController
 
     if @wine.save
       current_user.wines << @wine
-      redirect_to wine_path(@wine)
+      respond_to do |f|
+				f.html {redirect_to wines_path}
+				f.json {render json: @wine, status: 201}
+      end
     else
       render 'wines/new'
     end

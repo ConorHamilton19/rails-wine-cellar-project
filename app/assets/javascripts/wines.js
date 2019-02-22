@@ -22,11 +22,21 @@ function getWines(){
 function newWines(){
   $('form#new_wine').on('submit', function(e) {
     e.preventDefault();
-    console.log("stop")
     const $form = $(this);
     const action = $form.attr("action");
     const params = $form.serialize();
 
-    $.post(action, params);
+    $.ajax({
+      url: action,
+      data: params,
+      dataType: "json",
+      method: "POST"
+    })
+    .success(function(json){
+      console.log(json)
+    })
+    .error(function(response){
+      console.log("broke", response)
+    })
   })
 }
