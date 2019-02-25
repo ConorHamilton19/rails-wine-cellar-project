@@ -42,7 +42,7 @@ class WinesController < ApplicationController
 
   def destroy
     @wine = Wine.find(params[:id])
-    @wine.destroy
+    current_user.wines.delete(@wine)
     redirect_to wines_path
   end
 
