@@ -18,12 +18,19 @@ function getWines(){
   })
 }
 
-class Wine {
-  constructor(attributes) {
+function Wine(attributes) {
     this.name = attributes.name
     this.year = attributes.year
     this.price = attributes.price
   }
+
+$(function(){
+  Wine.templateSource = document.getElementById("wine-template").innerHTML
+  Wine.template = Handlebars.compile(Wine.templateSource)
+})
+
+Wine.prototype.renderLI = function() {
+    return Wine.template(this)
 }
 
 function newWines(){
