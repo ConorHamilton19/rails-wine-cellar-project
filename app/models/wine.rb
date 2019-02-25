@@ -6,8 +6,8 @@ class Wine < ApplicationRecord
   validates :name, presence: true
   validates :type_name, presence: true
 
-  scope :bottle_drank, ->  {joins(:user_wines).merge(UserWine.drank)}
-  scope :bottle_corked, -> {joins(:user_wines).merge(UserWine.corked)}
+  scope :bottle_drank, ->  {joins(:user_wines).where("user_wines.uncorked = ?", 1)}
+  scope :bottle_corked, -> {joins(:user_wines).where("user_wines.uncorked = ?", 0)}
 
   def self.popular
      joins(:user_wines)

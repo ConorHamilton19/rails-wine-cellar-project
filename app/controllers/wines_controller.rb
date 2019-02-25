@@ -8,16 +8,11 @@ class WinesController < ApplicationController
 
   def create
     @wine = Wine.find_or_create_by(wine_params)
-
-    if @wine.save
       current_user.wines << @wine
       respond_to do |f|
 				f.html {redirect_to wines_path}
 				f.json {render json: @wine, status: 201}
       end
-    else
-      render 'wines/new'
-    end
   end
 
   def show
@@ -27,6 +22,8 @@ class WinesController < ApplicationController
 
   def index
     @wines = current_user.wines
+    @wines_corked = Wine.bottle_corked & current_user.wines
+    @wines_drank = Wine.bottle_drank & current_user.wines
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @wines, status: 200}

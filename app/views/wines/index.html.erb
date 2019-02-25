@@ -1,7 +1,7 @@
 <h1> Wine Collection </h1>
 
 <ul>
-<% @wines.bottle_corked.each do |wine| %>
+<% @wines_corked.each do |wine| %>
 
 <li> <%= link_to "#{wine.name}", wine_path(wine) %> </li><br>
 
@@ -11,7 +11,7 @@
 <h1> Wines Uncorked </h1>
 
 <ul>
-  <% @wines.bottle_drank.each do |wine| %>
+  <% @wines_drank.each do |wine| %>
 
   <li> <%= link_to "#{wine.name}", wine_path(wine) %> </li><br>
 
