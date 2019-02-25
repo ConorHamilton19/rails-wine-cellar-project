@@ -18,6 +18,13 @@ function getWines(){
   })
 }
 
+class Wine {
+  constructor(attributes) {
+    this.name = attributes.name
+    this.year = attributes.year
+    this.price = attributes.price
+  }
+}
 
 function newWines(){
   $('form#new_wine').on('submit', function(e) {
@@ -33,7 +40,10 @@ function newWines(){
       method: "POST"
     })
     .success(function(json){
-      console.log(json)
+      let wine = new Wine(json);
+      let wineLi = wine.renderLI()
+
+      $("ul.wine-list").append(wineLi)
     })
     .error(function(response){
       console.log("broke", response)
