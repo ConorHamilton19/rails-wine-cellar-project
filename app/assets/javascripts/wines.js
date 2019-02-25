@@ -51,6 +51,7 @@ function newWines(){
       let wineLi = wine.renderLI()
 
       $("ul.wine-list").append(wineLi)
+      $form[0].reset()
     })
     .error(function(response){
       console.log("broke", response)
