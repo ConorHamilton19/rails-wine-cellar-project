@@ -47,6 +47,7 @@ function newWines(){
       method: "POST"
     })
     .success(function(json){
+      console.log(json)
       let wine = new Wine(json);
       let wineLi = wine.renderLI()
 
