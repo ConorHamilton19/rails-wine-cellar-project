@@ -3,12 +3,10 @@
 <h3 class="typeName"><%= @wine.type.name %> </h3>
 <h3 class="wineYear"><%= @wine.year %> </h3>
 <h3 class="winePrice">$<%= @wine.price %> </h3>
-<br>
-<a href="#" class="js-next" data-id="<%=@wine.id%>">Next...</a>
-</br>
+
 <br>
 
-
+<div class="nextClear">
 <%= link_to "Edit Wine", edit_wine_path(@wine) %>
 <%= link_to "Delete Wine", wine_path(@wine), method: :delete %>
 
@@ -27,6 +25,10 @@
 <%end%>
 
 <br>
+</div>
+
+<br>
+<a href="#" class="js-next" data-id="<%=@wine.id%>">Check out some more wines..</a>
 
 
 <%= link_to "Back to my wines", wines_path %>

@@ -1,7 +1,6 @@
 <div class="content">
 <h1> Welcome, <%= @user.name %> </h1>
 
-<h3> Heres some stats about your account: </h3>
 <h3>You have <%= @user.wines.count %> Bottles in your Collection. </h3>
 <button id="wines">Load Wines</button><br>
 <div class="corked">
@@ -11,5 +10,8 @@
 
 <%= link_to "See your Wines", wines_path %>  &nbsp;&nbsp;&nbsp;&nbsp; <%= link_to "See your Wine Types", types_path%><br>
 <br>
+<h3> See What Other Users Like... </h3>
+<br>
 <%= link_to "5 Most Popular Wines", popular_path %>
+
 </div>

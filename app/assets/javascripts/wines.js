@@ -70,8 +70,8 @@ function nextWine () {
       $(".typeName").text(data["type"]["name"]);
       $(".winePrice").text(data["price"]);
       $(".wineYear").text(data["year"]);
-      // re-set the id to current on the link
       $(".js-next").attr("data-id", data["id"]);
+      $(".nextClear").text("")
     });
   });
 }
