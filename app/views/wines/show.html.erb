@@ -1,8 +1,12 @@
-<h1><%= @wine.name %></h1>
+<h1 class="wineName"><%= @wine.name %></h1>
 
-<h3><%= @wine.type.name %> </h3>
-<h3><%= @wine.year %> </h3>
-<h3>$<%= @wine.price %> </h3>
+<h3 class="typeName"><%= @wine.type.name %> </h3>
+<h3 class="wineYear"><%= @wine.year %> </h3>
+<h3 class="winePrice">$<%= @wine.price %> </h3>
+<br>
+<a href="#" class="js-next" data-id="<%=@wine.id%>">Next...</a>
+</br>
+<br>
 
 
 <%= link_to "Edit Wine", edit_wine_path(@wine) %>

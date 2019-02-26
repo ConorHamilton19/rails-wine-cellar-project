@@ -19,7 +19,7 @@ class WinesController < ApplicationController
     @wine = Wine.find(params[:id])
     @user_wine = UserWine.find_by(wine_id: @wine.id, user_id: current_user.id)
     respond_to do |format|
-      format.html { render :index }
+      format.html { render :show }
       format.json { render json: @wine, status: 200}
     end
   end

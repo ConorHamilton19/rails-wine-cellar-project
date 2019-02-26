@@ -5,6 +5,7 @@ $(document).ready(function() {
 function attachListeners() {
   getWines()
   newWines()
+  nextWine()
 }
 
 function getWines(){
@@ -58,4 +59,19 @@ function newWines(){
       console.log("broke", response)
     })
   })
+}
+
+function nextWine () {
+  $(".js-next").on("click", function(e) {
+    e.preventDefault()
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/wines/" + nextId + ".json", function(data) {
+      $(".wineName").text(data["name"]);
+      $(".typeName").text(data["type"]["name"]);
+      $(".winePrice").text(data["price"]);
+      $(".wineYear").text(data["year"]);
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", data["id"]);
+    });
+  });
 }
