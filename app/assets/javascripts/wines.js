@@ -48,7 +48,6 @@ function newWines(){
       method: "POST"
     })
     .success(function(json){
-      console.log(json)
       let wine = new Wine(json);
       let wineLi = wine.renderLI()
 
@@ -65,13 +64,15 @@ function nextWine () {
   $(".js-next").on("click", function(e) {
     e.preventDefault()
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/wines/" + nextId + ".json", function(data) {
+    $.get("/wines/" + nextId + ".json").success( function(data) {
       $(".wineName").text(data["name"]);
       $(".typeName").text(data["type"]["name"]);
       $(".winePrice").text(data["price"]);
       $(".wineYear").text(data["year"]);
       $(".js-next").attr("data-id", data["id"]);
       $(".nextClear").text("")
-    });
+    }).error(function(data){
+      alert("No More Wines!")
+    })
   });
 }
