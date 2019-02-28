@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     if session[:user_id] != @user.id
       redirect_to root_path
     end
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @user, status: 200}
+    end
   end
 
   private

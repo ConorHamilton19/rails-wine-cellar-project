@@ -8,36 +8,44 @@ function attachListeners() {
   nextWine()
 }
 
+// Render Wine Index on User Show- User has_many Wines through UserWines //
 function getWines(){
   $('#wines').on('click', function() {
-    $.get("/wines.json").success(function(response) {
+    var userId = parseInt($("#wines").attr("user_id"))
+    $.get("/users/"+ userId + ".json").success(function(response) {
+      console.log(response)
       $("div.corked ul").html("");
-      response.forEach(function(wine){
+      response.wines.forEach(function(wine){
         $("div.corked ul").append("<li>" + wine.name + "</li>")
       })
     })
   })
 }
 
+// JS Model Object Constructor //
 function Wine(attributes) {
     this.name = attributes.name
     this.year = attributes.year
     this.price = attributes.price
   }
 
+// Handlebars template set-up //
 $(function(){
   Wine.templateSource = document.getElementById("wine-template").innerHTML
   Wine.template = Handlebars.compile(Wine.templateSource)
 })
 
+// Prototype Function For Passing Object To Template //
 Wine.prototype.renderLI = function() {
     return Wine.template(this)
 }
 
+// Hijacking and posting current new wine form via AJAX //
 function newWines(){
   $('form#new_wine').on('submit', function(e) {
     e.preventDefault();
     const $form = $(this);
+    console.log(this)
     const action = $form.attr("action");
     const params = $form.serialize();
 
@@ -47,18 +55,21 @@ function newWines(){
       dataType: "json",
       method: "POST"
     })
-    .success(function(json){
+    .done(function(json){
       let wine = new Wine(json);
-      let wineLi = wine.renderLI()
+      let wineLi = wine.renderLI();
 
-      $("ul.wine-list").append(wineLi)
-      $form[0].reset()
+      $("ul.wine-list").append(wineLi);
+
+      $form[0].reset();
     })
     .error(function(response){
       console.log("broke", response)
     })
   })
 }
+
+// Rendering show page via AJAX and next button//
 
 function nextWine () {
   $(".js-next").on("click", function(e) {

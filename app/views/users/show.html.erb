@@ -2,7 +2,7 @@
 <h1> Welcome, <%= @user.name %> </h1>
 
 <h3>You have <%= @user.wines.count %> Bottles in your Collection. </h3>
-<button id="wines">Load Wines</button><br>
+<button id="wines" user_id="<%=@user.id%>">Load Wines</button><br>
 <div class="corked">
   <ul>
   </ul>
