@@ -64,7 +64,7 @@ function newWines(){
       $form[0].reset();
     })
     .error(function(response){
-      console.log("broke", response)
+      alert("Did not post.")
     })
   })
 }
