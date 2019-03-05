@@ -12,9 +12,6 @@ CONTRIBUTING
 https://github.com/ConorHamilton19/rails-wine-cellar-project
   -Submit a pull request
 
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
-
 Authors
 Conor Hamilton - Full application
 
